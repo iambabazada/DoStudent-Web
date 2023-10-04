@@ -1,8 +1,11 @@
 import React from 'react'
+import Register from './pages/auth/Register'
 
 const App = () => {
   return (
-    <div>Develop versiongit</div>
+    <div>
+      <Register />
+    </div>
   )
 }
 
