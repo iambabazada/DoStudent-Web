@@ -1,6 +1,7 @@
 import React from "react";
 import "../../style/login.css";
 import { useState, useEffect } from "react";
+import Button from "../../components/Button/Button";
 
 const Login = () => {
     const [username, setUsername] = useState("");
