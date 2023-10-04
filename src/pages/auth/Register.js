@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import React, { useEffect } from 'react'
 import * as Yup from 'yup';
 import styles from '../../styles/pages/auth/Register.module.css'
 import Button from '../../components/Button/Button';

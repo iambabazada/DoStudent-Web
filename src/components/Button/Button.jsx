@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const Button = ({ bg = "red", width = "sm", children }) => {
     const styleBtn = {
         backgroundColor: bg,
