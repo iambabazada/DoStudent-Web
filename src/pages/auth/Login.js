@@ -1,5 +1,5 @@
 import React from "react";
-import "../../style/login.css";
+import styles from '../../styles/pages/auth/Login.module.css'
 import { useState, useEffect } from "react";
 
 const Login = () => {
@@ -20,6 +20,15 @@ const Login = () => {
         e.preventDefault();
     }
 
+    if(username !== "" || username != null){
+        setError(false)
+    }
+    if(password !== "" || password != null){
+        setError(false)
+    }
+
+    setUsername('');
+    setPassword('');
     useEffect(() => {
         if (username != "" || username != null) {
             setError(false)
@@ -30,6 +39,11 @@ const Login = () => {
     }, [username, password, error])
 
 
+  useEffect(() => {
+    
+    
+  }, [username, password, error])
+  
     return (
         <div className="container">
             <div className="img-box">{/* <img src="" alt="" /> */}</div>
@@ -73,6 +87,7 @@ const Login = () => {
         </div>
     );
 };
+
 
 const ErrorMessage = ({ children }) => {
     return <span className="error">{children}</span>
