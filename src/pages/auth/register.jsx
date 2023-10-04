@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import * as Yup from 'yup';
+import styles from '../../styles/pages/auth/Register.module.css'
 
 const validationSchema = Yup.object({
     name: Yup.string().required('Name cannot be empty'),
@@ -20,6 +21,7 @@ const Register = () => {
             email: '',
             password: '',
             university: '',
+            gender: '',
             age: '',
             location: '',
             qualification: '',
@@ -36,7 +38,7 @@ const Register = () => {
 
     return (
         <div>
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit} className="form">
                 <label htmlFor="firstName">First Name</label>
                 {formik.touched.name && formik.errors.name ? (
                     <div>{formik.errors.name}</div>
@@ -97,14 +99,15 @@ const Register = () => {
                     onChange={formik.handleChange}
                     value={formik.values.location}
                 />
-                <label htmlFor="email">gender</label>
-                <select name="" id="gender" value="" onChange={formik.handleChange}>
-                    <option value="male">
-                        Male
-                    </option>
-                    <option value="Female">
-                        Female
-                    </option>
+                <label htmlFor="gender">Gender</label>
+                <select
+                    name="gender"
+                    id="gender"
+                    value={formik.values.gender}
+                    onChange={formik.handleChange}
+                >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                 </select>
 
                 <label htmlFor="email">Password</label>
@@ -122,6 +125,18 @@ const Register = () => {
                     type="text"
                     onChange={formik.handleChange}
                     value={formik.values.text}
+                />
+                <button type="submit">Submit</button>
+            </form>
+            <form action="" className="form">
+                <h2>2ci form</h2>
+                <label htmlFor="email">Phone</label>
+                <input
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.phone}
                 />
                 <button type="submit">Submit</button>
             </form>
