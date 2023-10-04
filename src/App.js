@@ -1,8 +1,11 @@
 import React from 'react'
+import Login from './pages/auth/Login.jsx'
 
 const App = () => {
   return (
-    <div>Develop versiongit</div>
+    <div>
+       <Login />
+    </div>
   )
 }
 
