@@ -2,13 +2,6 @@ import React from "react";
 import "../../style/login.css";
 import { useState, useEffect } from "react";
 
-<<<<<<< HEAD
-
-const login = () => {
-    return (
-        <div>login</div>
-    )
-=======
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -83,7 +76,6 @@ const Login = () => {
 
 const ErrorMessage = ({children}) => {
     return <span className="error">{children}</span>
->>>>>>> feature-login
 }
 
 export default Login;

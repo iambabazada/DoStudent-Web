@@ -37,9 +37,6 @@ const Register = () => {
 
 
     return (
-<<<<<<< HEAD
-        <div>register Develop</div>
-=======
         <div>
             <form onSubmit={formik.handleSubmit} className="form">
                 <label htmlFor="firstName">First Name</label>
