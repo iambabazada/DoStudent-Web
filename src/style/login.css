@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+.container {
+  display: flex;
+}
+.container .img-box {
+  display: block;
+  width: 45%;
+  height: 100vh;
+  background: #1c5ea3;
+}
+
+/* .container .img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.login-field {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-field .login-box {
+  width: 393px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding: 28px 33px 58px 51px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-field .login-box h4 {
+  font-size: 20px;
+  color: #00a551;
+  margin-bottom: 18px;
+}
+.login-field .login-box p {
+  font-size: 12px;
+  color: #474749;
+  margin-bottom: 26px;
+}
+.login-field .login-box .login-form {
+  display: flex;
+  flex-direction: column;
+}
+.login-field .login-box .login-form label {
+  font-size: 12px;
+  color: #7f7e83;
+  margin-bottom: 12px;
+}
+.login-field .login-box .login-form input {
+  width: 310px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #f4f4f4;
+  padding: 0 10px;
+}
+.login-field .login-box .login-form #name {
+    margin-bottom: 10px;
+  /* margin-bottom: 22px; */
+}
+.login-field .login-box .login-form .error{
+    color: red;
+    margin-bottom: 25px;
+    margin-left: 5px;
+}
+
+.login-field .login-box .login-form #password {
+  margin-bottom: 10px;
+}
+
+.login-field .login-box .login-form .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  background-color: #00a551;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 10px;
+  margin-bottom: 27px;
+}
+
+.login-field .login-box .login-form .submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+.login-field .login-box span {
+  font-size: 12px;
+  color: #474749;
+}
+.login-field .login-box span a {
+  color: #00a551;
+  text-decoration: underline;
+}
+

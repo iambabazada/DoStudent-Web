@@ -144,7 +144,6 @@ const Register = () => {
                 <button type="submit">Submit</button>
             </form>
         </div>
->>>>>>> feature-register
     )
 }
 
