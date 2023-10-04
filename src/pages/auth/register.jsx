@@ -41,85 +41,7 @@ const Register = () => {
         validateOnMount: true
     });
 
-
-
-
     return (
-        <div>
-            <form onSubmit={formik.handleSubmit} className="form">
-                <label htmlFor="firstName">First Name</label>
-                {formik.touched.name && formik.errors.name ? (
-                    <div>{formik.errors.name}</div>
-                ) : null
-                }
-                <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.name}
-                />
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                    id="surname"
-                    name="surname"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.surname}
-                />
-                <label htmlFor="email">Email Address</label>
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                />
-                <label htmlFor="email">Username</label>
-                <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.username}
-                />
-                <label htmlFor="email">Age</label>
-                <input
-                    id="age"
-                    name="age"
-                    type="number"
-                    onChange={formik.handleChange}
-                    value={formik.values.age}
-                />
-                <label htmlFor="email">university</label>
-                <input
-                    id="university"
-                    name="university"
-                    type="username"
-                    onChange={formik.handleChange}
-                    value={formik.values.university}
-                />
-                <label htmlFor="email">Location</label>
-                <input
-                    id="location"
-                    name="location"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.location}
-                />
-                <label htmlFor="gender">Gender</label>
-                <select
-                    name="gender"
-                    id="gender"
-                    value={formik.values.gender}
-                    onChange={formik.handleChange}
-                >
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-
-    return (
-
         <div className={styles.register}>
             <div className={styles.image_box}>
 
@@ -287,7 +209,7 @@ const Register = () => {
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
 export default Register
