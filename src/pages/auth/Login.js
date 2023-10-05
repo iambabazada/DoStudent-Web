@@ -8,7 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(true);
 
-    const handleValidate = () => {
+    const handleValidate = (e) => {
         const login = {
             username: username,
             password: password
@@ -18,6 +18,7 @@ const Login = () => {
         setUsername('');
         setPassword('');
 
+        e.preventDefault();
     }
 
     useEffect(() => {
