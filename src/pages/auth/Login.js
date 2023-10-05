@@ -1,6 +1,7 @@
 import React from "react";
 import styles from '../../styles/pages/auth/Login.module.css'
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -16,19 +17,19 @@ const Login = () => {
 
         setUsername('');
         setPassword('');
-        
+
     }
 
     useEffect(() => {
-        if(username !== ""){
+        if (username !== "") {
             setError(false)
         }
-        if(password !== ""){
+        if (password !== "") {
             setError(false)
         }
     }, [username, password])
 
-  
+
     return (
         <div className={styles.container}>
             <div className={styles.img_box}>{/* <img src="" alt="" /> */}</div>
@@ -67,7 +68,7 @@ const Login = () => {
                         </div>
                     </form>
                     <span>
-                        Lorem ipsum dolor sit.? <a href="#">Register</a>
+                        Lorem ipsum dolor sit.? <Link to="/register">Register</Link>
                     </span>
                 </div>
             </div>
