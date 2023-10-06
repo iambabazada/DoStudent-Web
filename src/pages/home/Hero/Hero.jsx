@@ -40,7 +40,7 @@ const Hero = () => {
         infinite: true,
         centerPadding: "0px",
         slidesToShow: 3,
-        autoplay: true,
+        autoplay: false,
         speed: 500,
         autoplaySpeed: 5000,
         cssEase: "linear",

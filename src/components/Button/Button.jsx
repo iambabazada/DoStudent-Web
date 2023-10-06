@@ -14,6 +14,7 @@ const Button = ({ bg = "red", width = "sm", children }) => {
         margin: '10px',
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
         gap: "10px",
         textAlign: "center"
     }

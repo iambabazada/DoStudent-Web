@@ -42,3 +42,8 @@ body {
   justify-content: center !important;
   padding: 0rem !important;
 }
+
+.slick-slide.slick-current{
+  transform: scale(1.1) !important;
+  transition: .3s;
+}
