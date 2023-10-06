@@ -3,6 +3,7 @@ import Register from './pages/auth/Register'
 import Login from './pages/auth/Login'
 import { BrowserRouter, } from 'react-router-dom'
 import Router from './router/router'
+import Footer from './components/Footer/Footer'
 
 const App = () => {
   return (
@@ -12,9 +13,7 @@ const App = () => {
           Header
         </header>
         <Router />
-        <footer>
-          Footer
-        </footer>
+        <Footer />
       </BrowserRouter>
     </div>
   )
