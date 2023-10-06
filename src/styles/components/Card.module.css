@@ -1,0 +1,38 @@
+.card {
+    background-color: rgb(209, 209, 209);
+    padding: 1rem;
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 10px;
+}
+
+
+
+.card_img {
+    width: 100%;
+    background-color: aqua;
+    height: 175px;
+    border-radius: 4px;
+}
+
+.card_body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.created_at {
+    color: rgba(0, 0, 0, 0.56);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
