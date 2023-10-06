@@ -1,11 +1,11 @@
 import React from 'react'
-import Slider from './Slider/Slider'
+import Hero from './Hero/Hero'
 import styles from '../../styles/pages/home/Home.module.css'
 
 const Home = () => {
     return (
         <main className={styles.home}>
-            <Slider />
+            <Hero />
         </main>
     )
 }

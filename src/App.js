@@ -12,9 +12,6 @@ const App = () => {
     <div>
       <BrowserRouter >
         <Navbar />
-
-        <Blog /> 
-
         <Router />
         <Footer />
       </BrowserRouter>
