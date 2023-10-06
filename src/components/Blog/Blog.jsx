@@ -22,10 +22,10 @@ const BlogItem = () => {
         <h4>"Odlar Yurdu" university</h4>
         <div className={styles.details}>
             <span>
-                <FaUser /> Aysel Mammadova
+               Aysel Mammadova
             </span>
             <span>
-                <FaCalendar /> June 18 / 2023 18:23
+                June 18 / 2023 18:23
             </span>
         </div>
      </div>
