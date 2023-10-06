@@ -25,6 +25,7 @@ body {
   right: 30px !important;
   top: 43% !important;
   transform: translate(-50%) !important;
+  z-index: 10 !important;
 }
 
 
@@ -32,6 +33,7 @@ body {
   left: 30px !important;
   top: 43% !important;
   transform: translate(-50%) !important;
+  z-index: 10 !important;
 }
 
 .slick-track {

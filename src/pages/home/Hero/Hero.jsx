@@ -40,7 +40,7 @@ const Hero = () => {
         infinite: true,
         centerPadding: "0px",
         slidesToShow: 3,
-        autoplay: false,
+        autoplay: true,
         speed: 500,
         autoplaySpeed: 5000,
         cssEase: "linear",
@@ -53,9 +53,9 @@ const Hero = () => {
                 <Card />
                 <Blog />
                 <Card />
-                <Blog />
                 <Card />
                 <Blog />
+                <Card />
             </Slider>
         </div>
     )
