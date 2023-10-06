@@ -10,7 +10,7 @@ const App = () => {
     <div>
       <BrowserRouter >
         <header>
-          Header
+          Header for fixed
         </header>
         <Router />
         <Footer />
