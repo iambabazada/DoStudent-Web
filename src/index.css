@@ -6,3 +6,37 @@
   list-style: none;
   font-family: poppins;
 }
+
+body {
+  background-color: #F5F4F0;
+}
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.slick-slider {
+  padding: 0rem 0rem;
+}
+
+.slick-next {
+  right: 30px !important;
+  top: 43% !important;
+  transform: translate(-50%) !important;
+}
+
+
+.slick-prev {
+  left: 30px !important;
+  top: 43% !important;
+  transform: translate(-50%) !important;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0rem !important;
+}
