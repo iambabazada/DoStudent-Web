@@ -12,6 +12,9 @@ const Button = ({ bg = "red", width = "sm", children }) => {
         fontWeight: 'bold',
         width: width,
         margin: '10px',
+        display: "flex",
+        alignItems: "center",
+        gap: "10px"
     }
 
     if (width === 'sm') {

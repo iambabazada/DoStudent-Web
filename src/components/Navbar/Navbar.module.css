@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;500;600&display=swap');
+
+
+.header {
+    padding: .5rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.brand h1 {
+    font-size: 2.1rem;
+    font-family: 'Red Rose', cursive;
+    color: #60B669;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.link {
+    color: black;
+    transition: all .3s;
+}
+
+.link:hover {
+    color: #60B669;
+}
+
+.active {
+    background-color: white;
+    padding: .7rem 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+    border-radius: .6rem;
+    transition: all .3s;
+    color: #60B669;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search {
+    width: 420px;
+    position: relative;
+}
+
+.search input {
+    width: 100%;
+    border-radius: 30px;
+    background: rgba(217, 217, 217, 0.59);
+    border: none;
+    padding: .5rem 1rem;
+    outline: none;
+}
+
+.search .search_icon {
+    position: absolute;
+    right: .5rem;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(82, 81, 81, 0.59);
+}

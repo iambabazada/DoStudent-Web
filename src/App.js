@@ -1,16 +1,15 @@
 import React from 'react'
-import Register from './pages/auth/Register'
-import Login from './pages/auth/Login'
+// import Register from './pages/auth/Register'
+// import Login from './pages/auth/Login'
 import { BrowserRouter, } from 'react-router-dom'
 import Router from './router/router'
+import Navbar from './components/Navbar/Navbar'
 
 const App = () => {
   return (
     <div>
       <BrowserRouter >
-        <header>
-          Header
-        </header>
+        <Navbar />
         <Router />
         <footer>
           Footer
