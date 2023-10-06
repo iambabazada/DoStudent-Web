@@ -25,7 +25,7 @@ const Footer = () => {
            </a>
        </div>
        <div className={styles.copyright}>
-           © 2023 dostudents, All Rights Reserved
+           © 2023 dostudents, All Rights Reservededd
        </div>
     </footer>
   )
