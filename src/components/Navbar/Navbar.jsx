@@ -27,7 +27,7 @@ const Navbar = () => {
             <nav className={styles.navbar}>
                 <div className={styles.brand}>
                     <h1>
-                        DOSTUDENTT.
+                        DOSTUDENT
                     </h1>
                 </div>
                 <ul className={styles.links}>
