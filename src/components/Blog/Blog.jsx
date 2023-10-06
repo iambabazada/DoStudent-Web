@@ -1,34 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/components/Blog.module.css";
 import avatar from '../../assets/images/avatar.png'
 import { FaUser, FaCalendar } from "react-icons/fa";
 
-const Blog = () => {
+const Blog = ({ users }) => {
+
+
   return (
     <div className={styles.blog_container}>
-      <BlogItem />
-      <BlogItem />
-      <BlogItem />
+      {users?.slice(0, 3).map((user, index) => (
+        <BlogItem key={index} user={user} />
+      ))}
+      {users?.slice(3, 6).map((user) => (
+        <BlogItem key={user.id} user={user} />
+      ))}
     </div>
   );
 };
 
-const BlogItem = () => {
+const BlogItem = ({ user }) => {
   return <div className={styles.blog_item}>
-     <div className={styles.avatar}>
-        <img src={avatar} alt="" />
-     </div>
-     <div className={styles.details_container}>
-        <h4>"Odlar Yurdu" university</h4>
-        <div className={styles.details}>
-            <span>
-               Aysel Mammadova
-            </span>
-            <span>
-                June 18 / 2023 18:23
-            </span>
-        </div>
-     </div>
+    <div className={styles.avatar}>
+      <img src={avatar} alt="" />
+    </div>
+    <div className={styles.details_container}>
+      <h4>{user?.email}</h4>
+      <div className={styles.details}>
+        <span>
+          {user?.name}
+        </span>
+        <span>
+          {user?.website}
+        </span>
+      </div>
+    </div>
   </div>;
 };
 

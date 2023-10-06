@@ -15,6 +15,7 @@ body {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  transition: .5s;
 }
 
 .slick-slider {
@@ -40,10 +41,10 @@ body {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 0rem !important;
+  padding: 5rem !important;
 }
 
-.slick-slide.slick-current{
-  transform: scale(1.1) !important;
-  transition: .3s;
+.slick-slide.slick-current {
+  transform: scale(1.2) !important;
+  transition: .5s;
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../../../components/Card/Card'
 import Blog from '../../../components/Blog/Blog'
 import "slick-carousel/slick/slick.css";
@@ -47,14 +47,121 @@ const Hero = () => {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };
+
+    const [user, setUser] = useState()
+
+    useEffect(() => {
+        async function getUser() {
+            const response = await fetch('https://jsonplaceholder.typicode.com/users')
+            const data = await response.json()
+            // console.log(data);
+            setUser(data)
+        }
+        getUser()
+    }, [])
+
+    const userData = [
+        {
+            id: 1,
+            title: "title",
+            content: "content"
+        },
+        {
+            id: 2,
+            title: "title 2",
+            content: "content 2"
+        },
+        {
+            id: 3,
+            title: "title 3",
+            content: "content 3"
+        },
+        {
+            id: 1,
+            title: "title",
+            content: "content"
+        },
+        {
+            id: 2,
+            title: "title 2",
+            content: "content 2"
+        },
+        {
+            id: 3,
+            title: "title 3",
+            content: "content 3"
+        },
+    ]
+
+    const card = [
+        {
+            id: 1,
+            price: 500,
+            location: "baki OYU",
+            rooms: "3 otaqliii"
+        },
+        {
+            id: 1,
+            price: 600,
+            location: "Samaxi OYU",
+            rooms: "3 otaqliii"
+        },
+        {
+            id: 1,
+            price: 100,
+            location: "Lenkeran OYU",
+            rooms: "3 otaqliii"
+        },
+    ]
+
+    const books = [
+        {
+            id: 1,
+            title: "riyaziyyat",
+            desc: "cdefvrgvbgrb"
+        },
+        {
+            id: 2,
+            title: "Informatika",
+            desc: "cdefvrgvbgrb"
+        },
+        {
+            id: 3,
+            title: "Ana dili",
+            desc: "cdefvrgvbgrb"
+        },
+    ]
+
+
+
+    const mixData = [
+        ...books, ...userData, ...card
+    ]
+
+
+    const [house, setHouse] = useState([])
+
+    const handleSubmit = () => {
+        const home = mixData.filter((rooms) => rooms.rooms && console.log(rooms)).map((rooms) => console.log("dcerc", rooms.rooms))
+        // console.log(home);
+        const test = setHouse([{ ...house, home }])
+        console.log("salaalla", home);
+    }
+
+
+
+
+
     return (
         <div className={styles.hero}>
+            <button onClick={handleSubmit}>
+                Sendddd
+            </button>
             <Slider {...settings}>
                 <Card />
-                <Blog />
+                <Blog users={user} />
                 <Card />
-                <Card />
-                <Blog />
+                <Blog users={user} />
                 <Card />
             </Slider>
         </div>
