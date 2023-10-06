@@ -1,35 +1,36 @@
-import React from "react";
 import styles from '../../styles/pages/auth/Login.module.css'
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+
+
+const loginSchema = Yup.object({
+    username: Yup.string().required('Username cannot be empty'),
+    password: Yup.string().min(8, "Must be at least 8 characters").required('Password cannot be empty'),
+});
+
+ 
+
 
 const Login = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState(true);
+    
+    const formik = useFormik({
+        initialValues:{
+            username: '',
+            password: ''
+        },
+        onSubmit: values => {
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify(values)
+            }).then(() => console.log('Post Succeed'))
 
-    const handleValidate = (e) => {
-        const login = {
-            username: username,
-            password: password
-        }
-        console.log(login);
-
-        setUsername('');
-        setPassword('');
-
-        e.preventDefault();
-    }
-
-    useEffect(() => {
-        if (username !== "") {
-            setError(false)
-        }
-        if (password !== "") {
-            setError(false)
-        }
-    }, [username, password])
-
+            console.log(values);
+        },
+        validationSchema: loginSchema,
+        validationOnMount: true
+    })
+    
 
     return (
         <div className={styles.container}>
@@ -38,18 +39,18 @@ const Login = () => {
                 <div className={styles.login_box}>
                     <h4>Welcome Login Page</h4>
                     <p>Lorem ipsum dolor sit amet.</p>
-                    <form className={styles.login_form} onSubmit={handleValidate}>
+                    <form className={styles.login_form} onSubmit={formik.handleSubmit}>
                         <label htmlFor="name">Name</label>
                         <input
                             type="text"
                             placeholder="username"
                             className={styles.name}
-                            name="name"
-                            id="name"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            name="username"
+                            id="username"
+                            value={formik.values.username}
+                            onChange={formik.handleChange}
                         />
-                        {username === "" ? <ErrorMessage>Username is required</ErrorMessage> : ""}
+                        {formik.errors.username ? <ErrorMessage>{formik.errors.username}</ErrorMessage> : null}
 
                         <label htmlFor="password">Password</label>
                         <input
@@ -58,14 +59,14 @@ const Login = () => {
                             className={styles.password}
                             name="password"
                             id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={formik.values.password}
+                            onChange={formik.handleChange}
                         />
-                        {password === "" ? <ErrorMessage>Password is required</ErrorMessage> : ""}
+                        {formik.errors.password ? <ErrorMessage>{formik.errors.password}</ErrorMessage> : null}
 
 
                         <div className={styles.submit_button}>
-                            <button className={styles.button}>Login</button>
+                            <button type='submit' className={styles.button} onClick={formik.handleSubmit}>Login</button>
                         </div>
                     </form>
                     <span>
