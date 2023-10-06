@@ -5,15 +5,16 @@ import { BrowserRouter, } from 'react-router-dom'
 import Router from './router/router'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import Blog from './components/Blog/Blog'
 
 const App = () => {
   return (
     <div>
       <BrowserRouter >
         <Navbar />
-        <header>
-          Header for fixed
-        </header>
+
+        <Blog /> 
+
         <Router />
         <Footer />
       </BrowserRouter>
