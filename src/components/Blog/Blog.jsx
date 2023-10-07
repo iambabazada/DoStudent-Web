@@ -11,9 +11,6 @@ const Blog = ({ users }) => {
       {users?.slice(0, 3).map((user, index) => (
         <BlogItem key={index} user={user} />
       ))}
-      {users?.slice(3, 6).map((user) => (
-        <BlogItem key={user.id} user={user} />
-      ))}
     </div>
   );
 };
