@@ -60,103 +60,93 @@ const Hero = () => {
         getUser()
     }, [])
 
-    const userData = [
-        {
-            id: 1,
-            title: "title",
-            content: "content"
-        },
-        {
-            id: 2,
-            title: "title 2",
-            content: "content 2"
-        },
-        {
-            id: 3,
-            title: "title 3",
-            content: "content 3"
-        },
-        {
-            id: 1,
-            title: "title",
-            content: "content"
-        },
-        {
-            id: 2,
-            title: "title 2",
-            content: "content 2"
-        },
-        {
-            id: 3,
-            title: "title 3",
-            content: "content 3"
-        },
-    ]
+    // const userData = [
+    //     {
+    //         id: 1,
+    //         title: "title",
+    //         content: "content"
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "title 2",
+    //         content: "content 2"
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "title 3",
+    //         content: "content 3"
+    //     },
+    //     {
+    //         id: 1,
+    //         title: "title",
+    //         content: "content"
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "title 2",
+    //         content: "content 2"
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "title 3",
+    //         content: "content 3"
+    //     },
+    // ]
 
-    const card = [
-        {
-            id: 1,
-            price: 500,
-            location: "baki OYU",
-            rooms: "3 otaqliii"
-        },
-        {
-            id: 1,
-            price: 600,
-            location: "Samaxi OYU",
-            rooms: "3 otaqliii"
-        },
-        {
-            id: 1,
-            price: 100,
-            location: "Lenkeran OYU",
-            rooms: "3 otaqliii"
-        },
-    ]
+    // const card = [
+    //     {
+    //         id: 1,
+    //         price: 500,
+    //         location: "baki OYU",
+    //         rooms: "3 otaqliii"
+    //     },
+    //     {
+    //         id: 1,
+    //         price: 600,
+    //         location: "Samaxi OYU",
+    //         rooms: "3 otaqliii"
+    //     },
+    //     {
+    //         id: 1,
+    //         price: 100,
+    //         location: "Lenkeran OYU",
+    //         rooms: "3 otaqliii"
+    //     },
+    // ]
 
-    const books = [
-        {
-            id: 1,
-            title: "riyaziyyat",
-            desc: "cdefvrgvbgrb"
-        },
-        {
-            id: 2,
-            title: "Informatika",
-            desc: "cdefvrgvbgrb"
-        },
-        {
-            id: 3,
-            title: "Ana dili",
-            desc: "cdefvrgvbgrb"
-        },
-    ]
-
-
-
-    const mixData = [
-        ...books, ...userData, ...card
-    ]
-
-
-    const [house, setHouse] = useState([])
-
-    const handleSubmit = () => {
-        const home = mixData.filter((rooms) => rooms.rooms && console.log(rooms)).map((rooms) => console.log("dcerc", rooms.rooms))
-        // console.log(home);
-        const test = setHouse([{ ...house, home }])
-        console.log("salaalla", home);
-    }
+    // const books = [
+    //     {
+    //         id: 1,
+    //         title: "riyaziyyat",
+    //         desc: "cdefvrgvbgrb"
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Informatika",
+    //         desc: "cdefvrgvbgrb"
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Ana dili",
+    //         desc: "cdefvrgvbgrb"
+    //     },
+    // ]
 
 
 
+    // const mixData = [
+    //     ...books, ...userData, ...card
+    // ]
+
+    // const handleSubmit = () => {
+    //     const roomsArray = mixData.filter(item => item.rooms !== undefined);
+    //     console.log(roomsArray);
+    // };
 
 
     return (
         <div className={styles.hero}>
-            <button onClick={handleSubmit}>
-                Sendddd
-            </button>
+
             <Slider {...settings}>
                 <Card />
                 <Blog users={user} />
