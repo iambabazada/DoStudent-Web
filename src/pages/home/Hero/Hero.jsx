@@ -214,13 +214,14 @@ const Hero = () => {
   }
 
 
+
   return (
     <div className={styles.hero}>
       <Slider {...settings}>
         {concattedArr.map((arr, i) => {
           if (i % 2 !== 0) {
-            return <Blog data={arr}/>;
-          }else{
+            return <Blog data={arr} />;
+          } else {
             return <Card />
           }
         })}
