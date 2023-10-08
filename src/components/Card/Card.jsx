@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../../styles/components/Card.module.css'
 import Button from '../../components/Button/Button'
 
-const Card = ({ data }) => {
+const Card = ({ data, location }) => {
     return (
         <div className={styles.card}>
             <div className={styles.card_img}>
@@ -10,20 +10,20 @@ const Card = ({ data }) => {
             </div>
             <div className={styles.card_body}>
                 <span className={styles.price}>
-                    {data.name}
+                    {location}
                 </span>
                 <div>
                     <p>
-                        {data.email}
+                        csdcdsc
                     </p>
                     <span>
-                        {data.username}
+                        sdcdsc
                     </span>
                 </div>
             </div>
             <div className={styles.card_footer}>
                 <span className={styles.created_at}>
-                    {data.phone}
+                    cdscsd
                 </span>
                 <div>
                     <Button width="lg" bg="#60B669">
