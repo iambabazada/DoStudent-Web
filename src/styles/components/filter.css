@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 1.5rem;
 }
+
 .container .selectbox {
   position: relative;
   display: flex;
@@ -14,7 +15,9 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   margin-bottom: 0;
+  cursor: pointer;
 }
+
 .container .selectbox img {
   position: absolute;
   right: 15px;
@@ -22,6 +25,7 @@
   height: 18px;
   transition: .3s all;
 }
+
 .filter_container {
 
   display: flex;
@@ -32,21 +36,24 @@
   background: #fafafa;
   border-radius: 10px;
 }
+
 .filter_container li {
   position: relative;
-  display: flex;
-  align-items: center;
-  padding: 7px 111px 7px 6px;
+  padding: 7px 10px 7px 6px;
   background-color: #fafafa;
   border-radius: 10px;
   transition: .3s all;
 }
-.filter_container li:hover{
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+
+.filter_container li:hover {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
-.filter_container li span{
-    margin-left: 30px;
+
+.filter_container li span {
+  margin-left: 30px;
 }
+
 .filter_container li input[type="checkbox"] {
   appearance: none;
   position: absolute;
@@ -58,14 +65,16 @@
   height: 15px;
   border-radius: 5px;
   border: 1px solid black;
+  top: 11px;
+  cursor: pointer;
 }
 
 .filter_container li input[type="checkbox"]::before {
-  content: ''; 
+  content: '';
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #000; 
+  background-color: #000;
   transform: scale(0);
   transition: .3s all;
 }
@@ -73,11 +82,18 @@
 .filter_container li input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
-.down_arrow.open{
-    color: #000;
-    transform: rotate(180deg);
+
+.down_arrow.open {
+  color: #000;
+  transform: rotate(180deg);
 }
-.label_container{
-    display: flex;
-    gap: 10px;
+
+.label_container {
+  display: flex;
+  gap: 10px;
+}
+
+.data_name {
+  display: block;
+  width: 100%;
 }
