@@ -79,7 +79,7 @@
   transition: .3s all;
 }
 
-.filter_container li input[type="checkbox"]:checked::before {
+.filter_container li input[type="checkbox"].checked::before {
   transform: scale(1);
 }
 

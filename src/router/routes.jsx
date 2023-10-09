@@ -1,3 +1,4 @@
+import Blog from "../pages/blog/Blog"
 import Login from "../pages/auth/Login"
 import Register from "../pages/auth/Register"
 import Home from "../pages/home/Home"
@@ -13,6 +14,10 @@ const routes = [
         element: <Vacancies />
     },
     {
+        path: "/blog",
+        element: <Blog />
+    },
+    {
         path: "/login",
         element: <Login />
     },
@@ -20,7 +25,6 @@ const routes = [
         path: "/register",
         element: <Register />
     },
-
 ]
 
 export default routes
