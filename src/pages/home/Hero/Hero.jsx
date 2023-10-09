@@ -209,7 +209,7 @@ const Hero = () => {
     arrayValue += 3;
     concattedArr.push(
       usersArray.slice(arrayIndex, arrayValue).map((arr) => arr)
-    );
+    );  
     arrayIndex = arrayValue;
   }
 
