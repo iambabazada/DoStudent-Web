@@ -2,35 +2,45 @@ import styles from '../../styles/pages/auth/Login.module.css'
 import { Link } from "react-router-dom";
 import { useFormik } from 'formik';
 import * as Yup from "yup";
+import { login } from '../../redux/auth';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
-const loginSchema = Yup.object({
-    username: Yup.string().required('Username cannot be empty'),
-    password: Yup.string().min(8, "Must be at least 8 characters").required('Password cannot be empty'),
-});
 
- 
+
+// const loginSchema = Yup.object({
+//     username: Yup.string().required('Username cannot be empty'),
+//     password: Yup.string().min(8, "Must be at least 8 characters").required('Password cannot be empty'),
+// });
+
+
 
 
 const Login = () => {
-    
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const formik = useFormik({
-        initialValues:{
+        initialValues: {
             username: '',
             password: ''
         },
         onSubmit: values => {
-            fetch('https://jsonplaceholder.typicode.com/posts', {
-                method: 'POST',
-                body: JSON.stringify(values)
-            }).then(() => console.log('Post Succeed'))
+            dispatch(login(values))
+                .then(() => {
+                    navigate('/blog')
+                })
+                .catch((err) => {
+                    console.log("login page error", err);
+                })
 
-            console.log(values);
         },
-        validationSchema: loginSchema,
-        validationOnMount: true
+        // validationSchema: loginSchema,
+        // validationOnMount: true
+
     })
-    
+
 
     return (
         <div className={styles.container}>

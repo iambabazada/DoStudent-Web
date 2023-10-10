@@ -34,7 +34,7 @@ const Button = ({ bg = "red", width = "sm", children }) => {
 
 
     return (
-        <button style={styleBtn}>
+        <button type="submit" style={styleBtn}>
             {children}
         </button>
     )

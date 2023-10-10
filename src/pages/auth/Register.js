@@ -2,6 +2,9 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from '../../styles/pages/auth/Register.module.css'
 import Button from '../../components/Button/Button';
+import { register } from '../../redux/auth';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object({
     name: Yup.string().required('Name cannot be empty'),
@@ -19,25 +22,33 @@ const validationSchema = Yup.object({
 
 
 const Register = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const formik = useFormik({
         initialValues: {
-            name: '',
-            surname: '',
-            username: '',
             email: '',
+            username: '',
             password: '',
-            university: '',
             gender: '',
-            age: '',
-            location: '',
-            qualification: '',
-            phone: '',
         },
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            // const user = {
+            //     email: values.email,
+            //     username: values.username,
+            //     password: values.password,
+            //     gender: values.gender
+            // }
+            // console.log(user);
+            dispatch(register(values))
+                .then(() => {
+                    navigate('/login')
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
         },
-        validationSchema: validationSchema,
-        validateOnMount: true
+        // validationSchema: validationSchema,
+        // validateOnMount: true
     });
 
     return (
@@ -52,34 +63,7 @@ const Register = () => {
                     </h2>
                     <div className={styles.d_flex}>
                         <div className={styles.left}>
-                            <div className={styles.form_group}>
-                                <label htmlFor="firstName">First Name</label>
-                                <input
-                                    id="name"
-                                    name="name"
-                                    type="text"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.name}
-                                />
-                                {formik.errors.name ? (
-                                    <div className={styles.error}>{formik.errors.name}</div>
-                                ) : null
-                                }
-                            </div>
-                            <div className={styles.form_group}>
-                                <label htmlFor="lastName">Last Name</label>
-                                <input
-                                    id="surname"
-                                    name="surname"
-                                    type="text"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.surname}
-                                />
-                                {formik.errors.surname ? (
-                                    <div className={styles.error}>{formik.errors.surname}</div>
-                                ) : null
-                                }
-                            </div>
+
                             <div className={styles.form_group}>
                                 <label htmlFor="email">Email Address</label>
                                 <input
@@ -109,50 +93,8 @@ const Register = () => {
                                 }
                             </div>
 
-                            <div className={styles.form_group}>
-                                <label htmlFor="email">Age</label>
-                                <input
-                                    id="age"
-                                    name="age"
-                                    type="number"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.age}
-                                />
-                                {formik.errors.age ? (
-                                    <div className={styles.error}>{formik.errors.age}</div>
-                                ) : null
-                                }
-                            </div>
                         </div>
                         <div className={styles.right}>
-                            <div className={styles.form_group}>
-                                <label htmlFor="email">university</label>
-                                <input
-                                    id="university"
-                                    name="university"
-                                    type="username"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.university}
-                                />
-                                {formik.errors.university ? (
-                                    <div className={styles.error}>{formik.errors.university}</div>
-                                ) : null
-                                }
-                            </div>
-                            <div className={styles.form_group}>
-                                <label htmlFor="email">Location</label>
-                                <input
-                                    id="location"
-                                    name="location"
-                                    type="text"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.location}
-                                />
-                                {formik.errors.location ? (
-                                    <div className={styles.error}>{formik.errors.location}</div>
-                                ) : null
-                                }
-                            </div>
                             <div className={styles.form_group}>
                                 <label htmlFor="gender">Gender</label>
                                 <select
@@ -184,27 +126,11 @@ const Register = () => {
                                 ) : null
                                 }
                             </div>
-                            <div className={styles.form_group}>
-                                <label htmlFor="email">qualification</label>
-                                <input
-                                    id="qualification"
-                                    name="qualification"
-                                    type="text"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.text}
-                                />
-                                {formik.errors.qualification ? (
-                                    <div className={styles.error}>{formik.errors.qualification}</div>
-                                ) : null
-                                }
-                            </div>
                         </div>
                     </div>
-                    <div className={styles.btn_container}>
-                        <Button width="xl" bg="#00A551">
-                            Register
-                        </Button>
-                    </div>
+                    <Button width="xl" bg="#00A551">
+                        Register
+                    </Button>
                 </form>
             </div>
         </div>
