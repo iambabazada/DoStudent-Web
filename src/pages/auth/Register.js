@@ -5,6 +5,9 @@ import Button from '../../components/Button/Button';
 import { register } from '../../redux/auth';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 
 const validationSchema = Yup.object({
     name: Yup.string().required('Name cannot be empty'),
@@ -24,6 +27,10 @@ const validationSchema = Yup.object({
 const Register = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [message, setMessage] = useState('');
+
+
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -31,20 +38,61 @@ const Register = () => {
             password: '',
             gender: '',
         },
+
         onSubmit: values => {
-            // const user = {
-            //     email: values.email,
-            //     username: values.username,
-            //     password: values.password,
-            //     gender: values.gender
-            // }
-            // console.log(user);
+
             dispatch(register(values))
+                .unwrap()
                 .then(() => {
-                    navigate('/login')
+                    toast.success('Qeydiyyatdan kecdiniz ', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    setTimeout(() => {
+                        navigate('/login')
+                    }, 3000);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    const {
+                        password: parol,
+                        email: mail,
+                        username: useradi,
+                    } = err.validationErrors
+
+
+
+                    toast.error(parol, {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    toast.error(mail, {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    toast.error(useradi, {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 })
         },
         // validationSchema: validationSchema,
@@ -53,6 +101,7 @@ const Register = () => {
 
     return (
         <div className={styles.register}>
+            <ToastContainer />
             <div className={styles.image_box}>
 
             </div>
@@ -69,7 +118,7 @@ const Register = () => {
                                 <input
                                     id="email"
                                     name="email"
-                                    type="email"
+                                    type="text"
                                     onChange={formik.handleChange}
                                     value={formik.values.email}
                                 />

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ bg = "red", width = "sm", children }) => {
+const Button = ({ bg = "red", onClick, width = "sm", children }) => {
     const styleBtn = {
         backgroundColor: bg,
         color: 'white',
@@ -34,7 +34,7 @@ const Button = ({ bg = "red", width = "sm", children }) => {
 
 
     return (
-        <button type="submit" style={styleBtn}>
+        <button onClick={onClick} type="submit" style={styleBtn}>
             {children}
         </button>
     )

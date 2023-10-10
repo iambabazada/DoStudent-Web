@@ -4,8 +4,13 @@ import Button from '../Button/Button'
 import styles from './Navbar.module.css'
 import { User } from 'react-feather'
 import { Search } from 'react-feather'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+    const navigate = useNavigate()
+
+    const isLogin = useSelector((state) => state.auth.isAuth)
 
     const links = [
         {
@@ -21,6 +26,12 @@ const Navbar = () => {
             name: 'Blog'
         },
     ]
+
+    const handleLogin = () => {
+        navigate('/login')
+    }
+
+
 
     return (
         <header className={styles.header}>
@@ -46,10 +57,16 @@ const Navbar = () => {
                         <input type="text" placeholder='Search' />
                         <Search className={styles.search_icon} width={18} />
                     </div>
-                    <Button width="lg" bg={"#60B669"}>
-                        <User width={22} />
-                        Login
-                    </Button>
+                    {isLogin ? (
+                        <div>
+                            Hello
+                        </div>
+                    ) : (
+                        <Button width="lg" onClick={handleLogin} bg={"#60B669"}>
+                            <User width={22} />
+                            Login
+                        </Button>
+                    )}
                 </div>
             </nav>
         </header>

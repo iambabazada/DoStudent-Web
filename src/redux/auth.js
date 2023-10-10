@@ -2,29 +2,28 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 
 const initialState = {
-    user: [],
-    isAuth: false
+    users: JSON.parse(localStorage.getItem("user")) ? JSON.parse((localStorage.getItem("user"))) : null,
+    isAuth: localStorage.getItem("token") ? true : false,
+    token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
 }
+
+
 
 export const register = createAsyncThunk('register', async (data, thunkAPI) => {
     try {
-        const response = await axios.post('http://localhost:8080/api/v1/users', (data))
+        const response = await axios.post('/api/v1/users', (data))
         console.log("succes");
         return response.data
     }
     catch (err) {
-        console.log(err.validationErrors.password);
+        console.log(err.response.data.validationErrors);
         return thunkAPI.rejectWithValue(err.response?.data);
     }
 })
 
 export const login = createAsyncThunk('login', async (data, thunkAPI) => {
     try {
-        const response = await fetch('http://localhost:8080/api/v1/auth', {
-            mode: 'cors',
-            method: "POST",
-            body: data
-        })
+        const response = await axios.post('/api/v1/auth', (data))
         console.log("succes");
         return response.data
     }
@@ -38,15 +37,24 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        isAuth: (state) => {
-            state.isAuth = true
-        }
     },
     extraReducers: (builder) => {
         builder
             .addCase(register.fulfilled, (state, action) => {
+                state.users = action.payload.user;
+                const previousUsers = JSON.parse(localStorage.getItem("users") || '[]');
+                previousUsers.push(action.payload);
+                localStorage.setItem("users", JSON.stringify(previousUsers));
+                state.token = action.payload.token.token
+                localStorage.setItem("token", action.payload.token.token)
+            })
+            .addCase(login.fulfilled, (state, action) => {
                 state.isAuth = true
-                state.user = action.payload.user
+                state.users = action.payload.user
+                localStorage.setItem("users", JSON.stringify(action.payload.user))
+                state.token = action.payload.token.token
+                localStorage.setItem("token", action.payload.token.token)
+
             })
     }
 })
