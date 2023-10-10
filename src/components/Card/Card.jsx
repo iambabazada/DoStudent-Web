@@ -10,7 +10,7 @@ const Card = ({ price }) => {
             </div>
             <div className={styles.card_body}>
                 <span className={styles.price}>
-                    {price.range}
+                    200 - 250
                 </span>
                 <div>
                     <p>
