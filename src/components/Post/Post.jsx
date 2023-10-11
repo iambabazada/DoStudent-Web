@@ -2,22 +2,22 @@ import React from 'react'
 import styles from '../../styles/components/Post.module.css'
 import { Link } from 'react-router-dom'
 
-const Post = () => {
+const Post = ({ data }) => {
     return (
         <div className={styles.post}>
             <div className={styles.post_header}>
-                <img src="https://picsum.photos/500" alt="" />
+                <img src={data.images[0]} alt="" />
             </div>
             <div className={styles.post_info}>
                 <h1>
-                    What’s New in 2022 Tech
+                    {data.brand}
                 </h1>
                 <span>
-                    “Odlar Yurdu” university
+                    {data?.category}
                 </span>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut imperdiet justo ut sollicitudin ornare. Nullam id pharetra est. Donec placerat ultricies egestas. Vivamus scelerisque,
-                    <Link to={'/'} className={styles.more}> More...</Link>
+                    {data.description.split(' ').slice(0, 12).join(' ') + "..."}
+                    <Link to={'/'} className={styles.more}> More</Link>
                 </p>
             </div>
             <div className={styles.post_footer}>

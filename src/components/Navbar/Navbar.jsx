@@ -14,6 +14,10 @@ const Navbar = () => {
 
     const isLogin = useSelector((state) => state.auth.isAuth)
 
+    const user = useSelector((state) => state.auth.users)
+
+    console.log(user);
+
     const links = [
         {
             path: '/',
@@ -61,7 +65,10 @@ const Navbar = () => {
                     </div>
                     {isLogin ? (
                         <div className={styles.user} onClick={() => setIsOpen(open => !open)}>
-                             H
+                            <span className={styles.user_name}>
+                                {user?.username[0]}
+                            </span>
+
                             {isOpen && <UserProfile />}
                         </div>
                     ) : (
