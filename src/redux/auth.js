@@ -45,8 +45,6 @@ export const authSlice = createSlice({
                 const previousUsers = JSON.parse(localStorage.getItem("users") || '[]');
                 previousUsers.push(action.payload);
                 localStorage.setItem("users", JSON.stringify(previousUsers));
-                state.token = action.payload.token.token
-                localStorage.setItem("token", action.payload.token.token)
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.isAuth = true
