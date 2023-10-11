@@ -1,11 +1,10 @@
 import React from 'react'
-import BlogItem from '../../components/Blog/BlogItem/BlogItem'
-
+import Post from '../../components/Post/Post'
 
 const Blog = () => {
   return (
     <div>
-       <BlogItem />
+      <Post />
     </div>
   )
 }
