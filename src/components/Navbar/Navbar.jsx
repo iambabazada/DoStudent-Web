@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import Button from '../Button/Button'
 import styles from './Navbar.module.css'
@@ -6,6 +6,8 @@ import { User } from 'react-feather'
 import { Search } from 'react-feather'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import UserProfile from '../UserProfile/UserProfile'
+import 'animate.css';
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -31,7 +33,7 @@ const Navbar = () => {
         navigate('/login')
     }
 
-
+    const [isOpen, setIsOpen] = useState(false)
 
     return (
         <header className={styles.header}>
@@ -58,8 +60,9 @@ const Navbar = () => {
                         <Search className={styles.search_icon} width={18} />
                     </div>
                     {isLogin ? (
-                        <div>
-                            Hello
+                        <div className={styles.user} onClick={() => setIsOpen(open => !open)}>
+                             H
+                            {isOpen && <UserProfile />}
                         </div>
                     ) : (
                         <Button width="lg" onClick={handleLogin} bg={"#60B669"}>
