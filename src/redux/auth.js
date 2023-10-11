@@ -16,7 +16,7 @@ export const register = createAsyncThunk('register', async (data, thunkAPI) => {
         return response.data
     }
     catch (err) {
-        console.log(err.response.data.validationErrors);
+        console.log("redux", err.response?.data);
         return thunkAPI.rejectWithValue(err.response?.data);
     }
 })
@@ -54,9 +54,10 @@ export const authSlice = createSlice({
         builder
             .addCase(register.fulfilled, (state, action) => {
                 state.users = action.payload.user;
-                const previousUsers = JSON.parse(localStorage.getItem("users") || '[]');
-                previousUsers.push(action.payload);
-                localStorage.setItem("users", JSON.stringify(previousUsers));
+                localStorage.setItem("users", JSON.stringify(action.payload))
+                // const previousUsers = JSON.parse(localStorage.getItem("users") || '[]');
+                // previousUsers.push(action.payload.user);
+                // localStorage.setItem("users", JSON.stringify(previousUsers));
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.isAuth = true

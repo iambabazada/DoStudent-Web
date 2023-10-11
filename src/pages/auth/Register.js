@@ -27,7 +27,6 @@ const validationSchema = Yup.object({
 const Register = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [message, setMessage] = useState('');
 
 
 
@@ -62,9 +61,9 @@ const Register = () => {
                         password: parol,
                         email: mail,
                         username: useradi,
-                    } = err.validationErrors
+                    } = err.validationErrors;
 
-
+                    console.log("dscdscdsc", err);
 
                     toast.error(parol, {
                         position: "top-right",
