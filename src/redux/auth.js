@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 
 const initialState = {
-    users: JSON.parse(localStorage.getItem("user")) ? JSON.parse((localStorage.getItem("user"))) : null,
+    users: JSON.parse(localStorage.getItem("users")) ? JSON.parse((localStorage.getItem("users"))) : null,
     isAuth: localStorage.getItem("token") ? true : false,
     token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
 }
@@ -33,10 +33,22 @@ export const login = createAsyncThunk('login', async (data, thunkAPI) => {
     }
 })
 
+export const logout = createAsyncThunk('logout', async (_, thunkAPI) => {
+    try {
+        const response = axios.post('/api/v1/logout')
+        return response.data
+    }
+    catch (err) {
+        console.log(err);
+        return thunkAPI.rejectWithValue(err.response?.data);
+    }
+})
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
+
     },
     extraReducers: (builder) => {
         builder
@@ -53,6 +65,11 @@ export const authSlice = createSlice({
                 state.token = action.payload.token.token
                 localStorage.setItem("token", action.payload.token.token)
 
+            })
+
+            .addCase(logout.fulfilled, (state, action) => {
+                state.isAuth = false
+                localStorage.removeItem("token")
             })
     }
 })
