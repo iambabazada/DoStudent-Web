@@ -1,0 +1,33 @@
+.user_container{
+    position: absolute;
+    right: 0px;
+    top: 55px;
+    z-index: 2;
+}
+.user_container .user_profile{
+    width: 12.5rem;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.user_container .user_profile ul{
+    display: flex;
+    padding: 10px 0;
+    gap: 5px;
+    flex-direction: column;
+}
+.user_container .user_profile ul li{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    transition: .3s all;
+}
+.user_container .user_profile ul li img{
+    width: 30px;
+    height: 30px;
+}
+
+.user_container .user_profile ul li:hover{
+    background-color: #F5F5F5;
+}
+
