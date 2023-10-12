@@ -8,18 +8,13 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
+import RegisterImg from '../../assets/images/register.png'
+import RegisterImg2 from '../../assets/images/registerbg.png'
 
 const validationSchema = Yup.object({
-    name: Yup.string().required('Name cannot be empty'),
-    surname: Yup.string().required('Lastname cannot be empty'),
     email: Yup.string().email('Enter a valid email address').required('Email cannot be empty'),
     password: Yup.string().min(8, "Must be at least 8 characters").required('Password cannot be empty'),
     username: Yup.string().required('Username cannot be empty'),
-    age: Yup.number().required('Age cannot be empty'),
-    university: Yup.string().required('University cannot be empty'),
-    location: Yup.string().required('Location cannot be empty'),
-    qualification: Yup.string().required('Qualification cannot be empty'),
-    gender: Yup.string().required('gender cannot be empty')
 });
 
 
@@ -94,91 +89,91 @@ const Register = () => {
                     });
                 })
         },
-        // validationSchema: validationSchema,
-        // validateOnMount: true
+        validationSchema: validationSchema,
+        validateOnMount: true
     });
 
     return (
         <div className={styles.register}>
             <ToastContainer />
             <div className={styles.image_box}>
-
+                <img src={RegisterImg2} className={styles.green_bg} alt="" />
+                <img src={RegisterImg} alt="" />
             </div>
             <div className={styles.form_box}>
                 <form onSubmit={formik.handleSubmit} className={styles.form}>
                     <h2 className={styles.title}>
-                        Register
+                        Welcome Register!
                     </h2>
                     <div className={styles.d_flex}>
-                        <div className={styles.left}>
-
-                            <div className={styles.form_group}>
-                                <label htmlFor="email">Email Address</label>
-                                <input
-                                    id="email"
-                                    name="email"
-                                    type="text"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.email}
-                                />
-                                {formik.errors.email ? (
-                                    <div className={styles.error}>{formik.errors.email}</div>
-                                ) : null
-                                }
-                            </div>
-                            <div className={styles.form_group}>
-                                <label htmlFor="email">Username</label>
-                                <input
-                                    id="username"
-                                    name="username"
-                                    type="text"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.username}
-                                />
-                                {formik.errors.username ? (
-                                    <div className={styles.error}>{formik.errors.username}</div>
-                                ) : null
-                                }
-                            </div>
-
-                        </div>
-                        <div className={styles.right}>
-                            <div className={styles.form_group}>
-                                <label htmlFor="gender">Gender</label>
-                                <select
+                        <label htmlFor="">Gender</label>
+                        <div className={`${styles.form_group} ${styles.radio_btns}`}>
+                            <div>
+                                <input type="radio"
+                                    id="male"
                                     name="gender"
-                                    id="gender"
-                                    value={formik.values.gender}
-                                    onChange={formik.handleChange}
-                                    className={styles.select}
-                                >
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-                                {formik.touched.gender && formik.errors.gender ? (
-                                    <div className={styles.error}>{formik.errors.gender}</div>
-                                ) : null
-                                }
+                                    value={"male"}
+                                    onChange={formik.handleChange} />
+                                <label for="male">Male</label>
                             </div>
-                            <div className={styles.form_group}>
-                                <label htmlFor="email">Password</label>
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    onChange={formik.handleChange}
-                                    value={formik.values.password}
-                                />
-                                {formik.errors.password ? (
-                                    <div className={styles.error}>{formik.errors.password}</div>
-                                ) : null
-                                }
+                            <div>
+                                <input type="radio" id="female" name="gender" value={"female"}
+                                    onChange={formik.handleChange} />
+                                <label for="female">Femail</label>
                             </div>
+                            {formik.touched.gender && formik.errors.gender ? (
+                                <div className={styles.error}>{formik.errors.gender}</div>
+                            ) : null
+                            }
+                        </div>
+                        <div className={styles.form_group}>
+                            <label htmlFor="email">Email </label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="text"
+                                onChange={formik.handleChange}
+                                value={formik.values.email}
+                            />
+                            {formik.touched.email && formik.errors.email ? (
+                                <div className={styles.error}>{formik.errors.email}</div>
+                            ) : null
+                            }
+                        </div>
+                        <div className={styles.form_group}>
+                            <label htmlFor="email">Username</label>
+                            <input
+                                id="username"
+                                name="username"
+                                type="text"
+                                onChange={formik.handleChange}
+                                value={formik.values.username}
+                            />
+                            {formik.touched.username && formik.errors.username ? (
+                                <div className={styles.error}>{formik.errors.username}</div>
+                            ) : null
+                            }
+                        </div>
+                        <div className={styles.form_group}>
+                            <label htmlFor="email">Password</label>
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                onChange={formik.handleChange}
+                                value={formik.values.password}
+                            />
+                            {formik.touched.password && formik.errors.password ? (
+                                <div className={styles.error}>{formik.errors.password}</div>
+                            ) : null
+                            }
                         </div>
                     </div>
-                    <Button width="xl" bg="#00A551">
-                        Register
-                    </Button>
+                    <div className={styles.register_btn}>
+                        <Button width={"full"} className={styles.btn} bg="#00A551">
+                            Register
+                        </Button>
+                    </div>
                 </form>
             </div>
         </div>

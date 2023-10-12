@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ bg = "red", onClick, width = "sm", children }) => {
+const Button = ({ bg = "red", className, onClick, width = "sm", children }) => {
     const styleBtn = {
         backgroundColor: bg,
         color: 'white',
@@ -9,14 +9,13 @@ const Button = ({ bg = "red", onClick, width = "sm", children }) => {
         border: 'none',
         cursor: 'pointer',
         fontSize: '16px',
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         width: width,
-        margin: '10px',
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         gap: "10px",
-        textAlign: "center"
+        textAlign: "center",
     }
 
     if (width === 'sm') {
@@ -31,10 +30,13 @@ const Button = ({ bg = "red", onClick, width = "sm", children }) => {
     if (width === 'xl') {
         styleBtn.width = '200px'
     }
+    if (width === "full") {
+        styleBtn.width = "100%"
+    }
 
 
     return (
-        <button onClick={onClick} type="submit" style={styleBtn}>
+        <button onClick={onClick} className={className} type="submit" style={styleBtn}>
             {children}
         </button>
     )
