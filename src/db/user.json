@@ -1,0 +1,16 @@
+[
+    {
+        "id" : 1,
+        "name":"shahriyar", 
+        "surname": "Babazada",
+        "username": "iambabazada",
+        "email" : "iambabazada@gmail.com",
+        "university": "Odlar Yurdu Universiteti",
+        "gender": "Male",
+        "age":21,
+        "location": "Baku",
+        "qualification": "Information technology",
+        "budget": 500,
+        "phone": "0559853520"
+    }
+]

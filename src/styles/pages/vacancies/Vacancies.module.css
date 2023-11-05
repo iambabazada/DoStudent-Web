@@ -1,0 +1,24 @@
+.vacancies_container {
+    padding: 0rem 2rem;
+    margin: 7rem 0rem;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card_item {
+    margin-top: 1rem;
+    padding: .4rem;
+}
+
+.filter_container {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
